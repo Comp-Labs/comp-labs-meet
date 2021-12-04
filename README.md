@@ -6,7 +6,9 @@ Desktop application for [Comp Labs Meet] built with [Electron] modified from [Ji
 - Windows Application ![](/assets/screenshot-windows.png)
 - macOS Application ![](/assets/screenshot-macos.png)
 - Linux Application ![](/assets/screenshot-linux.png)
-- Deeplinks Support shown on macOS but works on all platforms. ![](/assets/deeplinks.mp4)
+- Deeplinks Support - Watch Video on Youtube
+
+<a href="https://youtu.be/3PPVo2Ltm1E"><img src="https://user-images.githubusercontent.com/86196753/144702305-72c50732-88d7-4c1c-b4c5-346ced84506e.jpg" width="250" height="131.5"></a>
 
 ## Features
 
@@ -15,9 +17,9 @@ Desktop application for [Comp Labs Meet] built with [Electron] modified from [Ji
 - Builtin auto-updates
 - ~Remote control~ (currently [disabled](https://github.com/jitsi/jitsi-meet-electron/issues/483) due to [security issues](https://github.com/jitsi/security-advisories/blob/master/advisories/JSA-2020-0001.md))
 - Always-On-Top window
-- Support for deeplinks such as `comp-labs-meet://myroom` (will open `myroom` on the configured Jitsi instance) or `comp-labs-meet://jitsi.mycompany.com/myroom` (will open `myroom` on the Jitsi instance running on `jitsi.mycompany.com`)
+- Support for deeplinks such as `comp-labs-meet://myroom` (will open `myroom` on the configured Jitsi instance) or `comp-labs-meet://meet.companydomain.com/myroom` (will open `myroom` on the Jitsi instance running on `meet.companydomain.com`)
 
-## Installation
+## Installation from Installer Files
 
 Download our latest release and you're off to the races!
 
@@ -27,17 +29,30 @@ Download our latest release and you're off to the races!
 
 NOTE: The GNU/LInux builds are 64-bit only.
 
-### Third-Party builds
+## Installation from OS App Stores
 
-<iframe src="https://snapcraft.io/comp-labs-meet/embedded?button=black&channels=true" frameborder="0" width="100%" height="520px" style="border: 1px solid #CCC; border-radius: 2px;"></iframe>
+Windows             |  macOS             |  Linux
+:------------------:|:------------------:|:-------------:
+<a href="https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html"><img src="https://user-images.githubusercontent.com/86196753/144703138-6dc9f792-429c-4bfc-9318-37bb6fea628a.png" width="216" height="78"></a>  |  [![MAS](https://user-images.githubusercontent.com/86196753/144703193-4547d9d3-bc96-4cf3-a82f-00a0b26f3358.png)](https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html)  |  [![LSS](https://user-images.githubusercontent.com/86196753/144703091-f425d98c-27ae-4ec2-922b-bc96413c9b8b.png)](https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html)
 
-**Yet to be published**
+**Not yet available on all the App Stores**
 
 ## Development
 
-If you want to hack on this project, here is how you do it.
+### Customise this Application
 
-**Building instructions**
+If you want to customise this application with your own needs such as logo, meeting url, text change on the app, here's how you do it.
+
+- Install [nodejs](https://nodejs.org/en/download) `Install the Latest version, not the LTS version`
+- Install [Git](https://git-scm.com/downloads) `Select your Operating System name and install it`
+- Download the Latest Electron Compressed Source based on your OS from `https://github.com/comp-labs/comp-labs-meet/releases/latest`
+- Extract the zip file and open a new terminal inside the directory
+- Run `npm install && npm start` from the Terminal. The App should start.
+- You can edit the Electron Source Files to Customise the Application.
+
+#### If you want to hack on this project, here is how you do it.
+
+### Building instructions
 
 #### Installing dependencies
 
@@ -101,7 +116,7 @@ A warning will show up mentioning the app is unsigned upon first install. This i
 
 ### macOS
 
-On macOS Catalina a warning will be displayed on first install. The app won't open unless "open" is pressed. This dialog is only shown once.
+On macOS Catalina and above versions, a warning will be displayed on first install. The app won't open unless "open" is pressed. This dialog is only shown once.
 
 ### GNU/Linux
 
@@ -125,11 +140,11 @@ sudo apt-get install libnss3
 
 ## Translations
 
-The json files are for all the strings inside the application and can be translated [here](/app/i18n/lang).
+The json files are for all the strings inside the application and can be translated here - [Windows](/Windows-Source/app/i18n/lang) [macOS](/macOS-Source/app/i18n/lang).
 
-New translations require the addition of a line in [index.js](/app/i18n/index.js).
+New translations require the addition of a line in [index.js (Windows)](/Windows-Source/app/i18n/index.js) [index.js (macOS)](/macOS-Source/app/i18n/index.js).
 
-`Localize desktop file on linux` requires the addition of a line in [package.json](/package.json).
+`Localize desktop file on linux` requires the addition of a line in [package.json (macOS)](/macOS-Source/package.json).
 Please search for `Comment[hu]` as an example to help add your translation of the English string `Jitsi Meet Desktop App` for your language.
 
 ## License
@@ -141,7 +156,7 @@ MIT License. See the [LICENSE] file.
 Jitsi is built by a large community of developers, if you want to participate,
 please join [community forum].
 
-[Comp Labs Meet]: https://github.com/comp-labs-meet
+[Comp Labs Meet]: https://github.com/comp-labs/comp-labs-meet
 [Electron]: https://electronjs.org/
 [latest release]: https://github.com/comp-labs-meet/releases/latest
 [jitsi-meet-electron-sdk]: https://github.com/jitsi/jitsi-meet-electron-sdk
