@@ -19,7 +19,7 @@ Desktop application for [Comp Labs Meet] built with [Electron] modified from [Ji
 - Always-On-Top window
 - Support for deeplinks such as `comp-labs-meet://myroom` (will open `myroom` on the configured Jitsi instance) or `comp-labs-meet://meet.companydomain.com/myroom` (will open `myroom` on the Jitsi instance running on `meet.companydomain.com`)
 
-## Installation from Installer Files
+## Installation from Installers
 
 Download our latest release and you're off to the races!
 
@@ -29,7 +29,7 @@ Download our latest release and you're off to the races!
 
 NOTE: The GNU/LInux builds are 64-bit only.
 
-## Installation from OS App Stores
+## Installation from Public App Stores
 
 Windows             |  macOS             |  Linux
 :------------------:|:------------------:|:-------------:
@@ -38,17 +38,6 @@ Windows             |  macOS             |  Linux
 **Not yet available on all the App Stores**
 
 ## Development
-
-### Customise this Application
-
-If you want to customise this application with your own needs such as logo, meeting url, text change on the app, here's how you do it.
-
-- Install [nodejs](https://nodejs.org/en/download) `Install the Latest version, not the LTS version`
-- Install [Git](https://git-scm.com/downloads) `Select your Operating System name and install it`
-- Download the Latest Electron Compressed Source based on your OS from `https://github.com/comp-labs/comp-labs-meet/releases/latest`
-- Extract the zip file and open a new terminal inside the directory
-- Run `npm install && npm start` from the Terminal. The App should start.
-- You can edit the Electron Source Files to Customise the Application.
 
 #### If you want to hack on this project, here is how you do it.
 
@@ -78,35 +67,16 @@ Install all required packages:
 npm install
 ```
 
-#### Working with jitsi-meet-electron-sdk
+### Customise this Application
 
-[jitsi-meet-electron-sdk] is a helper package which implements many features
-such as remote control and the always-on-top window. If new features are to be
-added / tested, running with a local version of these utils is very handy, here
-is how to do that.
+If you want to customise this application with your own needs such as logo, meeting url, text change on the app, here's how you do it.
 
-By default the @jitsi/electron-sdk is build from npm. The default dependency path in package.json is:
-
-```json
-"@jitsi/electron-sdk": "^3.0.0"
-```
-
-To work with local copy you must change the path to:
-
-```json
-"@jitsi/electron-sdk": "file:///Users/name/jitsi-meet-electron-sdk-copy",
-```
-
-To build the project you must force it to take the sources as `npm update` will
-not do it.
-
-```bash
-npm install @jitsi/electron-sdk --force
-```
-
-NOTE: Also check the [jitsi-meet-electron-sdk README] to see how to configure
-your environment.
-
+- Install [nodejs](https://nodejs.org/en/download) `Install the Latest version, not the LTS version`
+- Install [Git](https://git-scm.com/downloads) `Select your Operating System name and install it`
+- Download the Latest Electron Compressed Source based on your OS from `https://github.com/comp-labs/comp-labs-meet/releases/latest`
+- Extract the zip file and open a new terminal inside the directory
+- Run `npm install && npm start` from the Terminal. The App should start.
+- You can edit the Electron Source Files to Customise the Application.
 
 ## Known issues
 
@@ -140,11 +110,11 @@ sudo apt-get install libnss3
 
 ## Translations
 
-The json files are for all the strings inside the application and can be translated here - [Windows](/Windows-Source/app/i18n/lang) [macOS](/macOS-Source/app/i18n/lang).
+The json files are for all the strings inside the application and can be translated [here](/app/i18n/lang).
 
-New translations require the addition of a line in [index.js (Windows)](/Windows-Source/app/i18n/index.js) [index.js (macOS)](/macOS-Source/app/i18n/index.js).
+New translations require the addition of a line in [index.js](/app/i18n/index.js).
 
-`Localize desktop file on linux` requires the addition of a line in [package.json (macOS)](/macOS-Source/package.json).
+`Localize desktop file on linux` requires the addition of a line in [package.json](/package.json).
 Please search for `Comment[hu]` as an example to help add your translation of the English string `Jitsi Meet Desktop App` for your language.
 
 ## License
