@@ -82,7 +82,36 @@ If you want to customise this application with your own needs such as logo, meet
 
 ### Windows
 
-A warning will show up mentioning the app is unsigned upon first install. This is expected.
+1. A warning will show up mentioning the app is unsigned upon first install. This is expected.
+2. An Error should come up when running `npm run dist`. The error should be like this:
+```
+node:internal/crypto/hash:67
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:67:19)
+    at Object.createHash (node:crypto:130:10)
+    at module.exports (D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\util\createHash.js:135:53)
+    at NormalModule._initBuildHash (D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:417:16)
+    at handleParseError (D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:471:10)
+    at D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:503:5
+    at D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:358:12
+    at D:\complabsmeet-build\comp-labs-meet\node_modules\loader-runner\lib\LoaderRunner.js:373:3
+    at iterateNormalLoaders (D:\complabsmeet-build\comp-labs-meet\node_modules\loader-runner\lib\LoaderRunner.js:214:10)
+    at Array.<anonymous> (D:\complabsmeet-build\comp-labs-meet\node_modules\loader-runner\lib\LoaderRunner.js:205:4)
+    at Storage.finished (D:\complabsmeet-build\comp-labs-meet\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:55:16)
+    at D:\complabsmeet-build\comp-labs-meet\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:91:9
+    at D:\complabsmeet-build\comp-labs-meet\node_modules\graceful-fs\graceful-fs.js:115:16
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read_file_context:68:3) {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js $VERSION
+```
+To fix this, simply run `set NODE_OPTIONS=--openssl-legacy-provider` on Windows and `export NODE_OPTIONS=--openssl-legacy-provider` on macOS/Unix. And then run the command `npm run dist` again. Then it should work.
 
 ### macOS
 
