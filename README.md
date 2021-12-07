@@ -71,12 +71,12 @@ npm install
 
 If you want to customise this application with your own needs such as logo, meeting url, text change on the app, here's how you do it.
 
-- Install [nodejs](https://nodejs.org/en/download) `Install the Latest version, not the LTS version`
+- Install [nodejs](https://nodejs.org/en/download) `Install the LTS version, not the Latest version as it produces problems.`
 - Install [Git](https://git-scm.com/downloads) `Select your Operating System name and install it`
-- Download the Latest Electron Compressed Source based on your OS from `https://github.com/comp-labs/comp-labs-meet/releases/latest`
+- Download the Latest Compressed Source Code from `https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.zip`
 - Extract the zip file and open a new terminal inside the directory
 - Run `npm install && npm start` from the Terminal. The App should start.
-- You can edit the Electron Source Files to Customise the Application.
+- You can edit the Electron Source Files to Customize the Application.
 
 ## Known issues
 

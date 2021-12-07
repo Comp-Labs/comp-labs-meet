@@ -8,7 +8,7 @@ export default {
     /**
      * The URL to the source code repository.
      */
-    sourceURL: 'https://github.com/comp-labs/comp-labs-meet',
+    sourceURL: 'https://github.com/comp-labs/comp-labs-meet/',
 
     /**
      * Application name.
