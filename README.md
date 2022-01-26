@@ -3,21 +3,23 @@
 Desktop application for [Comp Labs Meet] built with [Electron] modified from [Jitsi Meet Electron App].
 
 ### Gallery
-- Windows Application ![](/assets/screenshot-windows.png)
-- macOS Application ![](/assets/screenshot-macos.png)
-- Linux Application ![](/assets/screenshot-linux.png)
-- Deeplinks Support - Watch Video on Youtube
+- **Windows Application ![](/assets/screenshot-windows.png)**
+- **macOS Application ![](/assets/screenshot-macos.png)**
+- **Linux Application ![](/assets/screenshot-linux.png)**
+- **Deeplinks Support - Watch Video:**
 
-<a href="https://youtu.be/3PPVo2Ltm1E"><img src="https://user-images.githubusercontent.com/86196753/144702305-72c50732-88d7-4c1c-b4c5-346ced84506e.jpg" width="250" height="131.5"></a>
+<!-- <a href="https://youtu.be/3PPVo2Ltm1E"><img src="https://user-images.githubusercontent.com/86196753/144702305-72c50732-88d7-4c1c-b4c5-346ced84506e.jpg" width="250" height="131.5"></a> -->
+
+<iframe width="512" height="256" src="https://www.youtube.com/embed/krqDiUuNd4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Features
 
 - [End-to-End Encryption](https://jitsi.org/blog/e2ee/) support (BETA)
 - Works with any Jitsi Meet deployment
 - Builtin auto-updates
-- ~Remote control~ (currently [disabled](https://github.com/jitsi/jitsi-meet-electron/issues/483) due to [security issues](https://github.com/jitsi/security-advisories/blob/master/advisories/JSA-2020-0001.md))
+- ~Remote control~ (Currently [Disabled](https://github.com/jitsi/jitsi-meet-electron/issues/483) due to [Security Issues](https://github.com/jitsi/security-advisories/blob/master/advisories/JSA-2020-0001.md))
 - Always-On-Top window
-- Support for deeplinks such as `comp-labs-meet://myroom` (will open `myroom` on the configured Jitsi instance) or `comp-labs-meet://meet.companydomain.com/myroom` (will open `myroom` on the Jitsi instance running on `meet.companydomain.com`)
+- Support for deeplinks such as `comp-labs-meet://mymeeting` (will open `mymeeting` on the configured Jitsi Server URL in the App) or `comp-labs-meet://meet.example.com/mymeeting` (will open `mymeeting` on the Jitsi Meet Server running on `meet.example.com`)
 
 ## Installation from Installers
 
@@ -39,33 +41,100 @@ Windows             |  macOS             |  Linux
 
 ## Development
 
-#### If you want to hack on this project, here is how you do it.
+If you want to hack on this project, here is how you do it.
 
-### Building instructions
+<details><summary>Show building instructions</summary>
 
 #### Installing dependencies
 
 Install Node.js 16 first (or if you use [nvm](https://github.com/nvm-sh/nvm), switch to Node.js 16 by running `nvm use`).
 
-**Extra dependencies for Windows**
+<details><summary>Extra dependencies for Windows</summary>
 
 ```bash
 npm install --global --production windows-build-tools
 ```
+</details>
 
-**Extra dependencies for GNU/Linux**
+<details><summary>Extra dependencies for GNU/Linux</summary>
 
 X11, PNG and zlib development packages are necessary. On Debian-like systems then can be installed as follows:
 
 ```bash
 sudo apt install libx11-dev zlib1g-dev libpng-dev libxtst-dev
 ```
+</details>
 
 Install all required packages:
 
 ```bash
 npm install
 ```
+
+#### Starting in development mode
+
+```bash
+npm start
+```
+
+The debugger tools are available when running in dev mode and can be activated with keyboard shortcuts as defined here https://github.com/sindresorhus/electron-debug#features.
+
+It can also be displayed automatically from the `SHOW_DEV_TOOLS` environment variable such as:
+
+```bash
+SHOW_DEV_TOOLS=true npm start
+```
+
+or from the application `--show-dev-tools` command line flag.
+
+#### Building the production distribution
+
+```bash
+npm run dist
+```
+
+#### Working with jitsi-meet-electron-sdk
+
+[jitsi-meet-electron-sdk] is a helper package which implements many features
+such as remote control and the always-on-top window. If new features are to be
+added / tested, running with a local version of these utils is very handy, here
+is how to do that.
+
+By default the @jitsi/electron-sdk is build from npm. The default dependency path in package.json is:
+
+```json
+"@jitsi/electron-sdk": "^3.0.0"
+```
+
+To work with local copy you must change the path to:
+
+```json
+"@jitsi/electron-sdk": "file:///Users/name/jitsi-meet-electron-sdk-copy",
+```
+
+To build the project you must force it to take the sources as `npm update` will
+not do it.
+
+```bash
+npm install @jitsi/electron-sdk --force
+```
+
+NOTE: Also check the [jitsi-meet-electron-sdk README] to see how to configure
+your environment.
+
+#### Publishing
+
+1. Create release branch: `git checkout -b release-1-2-3`, replacing 1-2-3 with the desired release version
+2. Increment the version: `npm version patch`, replacing `patch` with `minor` or `major` as required
+3. Push release branch to github: `git push -u origin release-1-2-3`
+4. Create PR: `gh pr create`
+5. Once PR is reviewed and ready to merge, create draft Github release: `gh release create v1.2.3 --draft --title 1.2.3`, replacing v1.2.3 and 1.2.3 with the desired release version
+6. Merge PR
+7. Github action will build binaries and attach to the draft release
+8. Test binaries from draft release
+9. If all tests are fine, publish draft release
+
+</details>
 
 ### Customise this Application
 
@@ -82,36 +151,7 @@ If you want to customise this application with your own needs such as logo, meet
 
 ### Windows
 
-1. A warning will show up mentioning the app is unsigned upon first install. This is expected.
-2. An Error should come up when running `npm run dist`. The error should be like this:
-```
-node:internal/crypto/hash:67
-  this[kHandle] = new _Hash(algorithm, xofLen);
-                  ^
-Error: error:0308010C:digital envelope routines::unsupported
-    at new Hash (node:internal/crypto/hash:67:19)
-    at Object.createHash (node:crypto:130:10)
-    at module.exports (D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\util\createHash.js:135:53)
-    at NormalModule._initBuildHash (D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:417:16)
-    at handleParseError (D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:471:10)
-    at D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:503:5
-    at D:\complabsmeet-build\comp-labs-meet\node_modules\webpack\lib\NormalModule.js:358:12
-    at D:\complabsmeet-build\comp-labs-meet\node_modules\loader-runner\lib\LoaderRunner.js:373:3
-    at iterateNormalLoaders (D:\complabsmeet-build\comp-labs-meet\node_modules\loader-runner\lib\LoaderRunner.js:214:10)
-    at Array.<anonymous> (D:\complabsmeet-build\comp-labs-meet\node_modules\loader-runner\lib\LoaderRunner.js:205:4)
-    at Storage.finished (D:\complabsmeet-build\comp-labs-meet\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:55:16)
-    at D:\complabsmeet-build\comp-labs-meet\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:91:9
-    at D:\complabsmeet-build\comp-labs-meet\node_modules\graceful-fs\graceful-fs.js:115:16
-    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read_file_context:68:3) {
-  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
-  library: 'digital envelope routines',
-  reason: 'unsupported',
-  code: 'ERR_OSSL_EVP_UNSUPPORTED'
-}
-
-Node.js $VERSION
-```
-To fix this, simply run `set NODE_OPTIONS=--openssl-legacy-provider` on Windows and `export NODE_OPTIONS=--openssl-legacy-provider` on macOS/Unix. And then run the command `npm run dist` again. Then it should work.
+A warning will show up mentioning the app is unsigned upon first install. This is expected.
 
 ### macOS
 
