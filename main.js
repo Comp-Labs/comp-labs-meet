@@ -4,7 +4,6 @@ const {
     BrowserWindow,
     Menu,
     app,
-    Notification,
     ipcMain
 } = require('electron');
 const contextMenu = require('electron-context-menu');
