@@ -3,12 +3,13 @@ export default {
     /**
      * The URL with extra information about the app / service.
      */
-    aboutURL: 'https://www.complabs.in/business-meeting-service/',
+    aboutURL: 'https://github.com/Comp-Labs/comp-labs-meet#readme',
+    /* https://complabs.in/solutions/business-meeting-service */
 
     /**
      * The URL to the source code repository.
      */
-    sourceURL: 'https://github.com/comp-labs/comp-labs-meet/',
+    sourceURL: 'https://github.com/Comp-Labs/comp-labs-meet/',
 
     /**
      * Application name.
@@ -34,7 +35,7 @@ export default {
     /**
      * URL to send feedback.
      */
-    feedbackURL: 'https://github.com/comp-labs/comp-labs-meet/issues',
+    feedbackURL: 'https://github.com/Comp-Labs/comp-labs-meet/issues',
 
     /**
      * The URL of Privacy Policy Page.
