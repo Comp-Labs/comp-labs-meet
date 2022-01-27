@@ -61,13 +61,6 @@ contextMenu({
     showServices: false
 });
 
-const NOTIFICATION_TITLE = 'IMPORTANT!'
-const NOTIFICATION_BODY = 'All Files You Download Are Saved In Your Downloads Folder.'
-
-function showNotification () {
-  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
-}
-
 // Enable DevTools also on release builds to help troubleshoot issues. Don't
 // show them automatically though.
 debug({
@@ -270,7 +263,7 @@ function createJitsiMeetWindow() {
 /**
  * Opens new window with WebRTC internals.
  */
- function createWebRTCInternalsWindow() {
+function createWebRTCInternalsWindow() {
     const options = {
         minWidth: 800,
         minHeight: 600,

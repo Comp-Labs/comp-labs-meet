@@ -15,7 +15,7 @@ export type RecentListItem = {
     /**
      * Not showing Conference Server URL.
      */
-    /**serverURL: string;
+    /** serverURL: string;
 
     /**
      * Timestamp of starting time of conference.

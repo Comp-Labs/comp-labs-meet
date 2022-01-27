@@ -1,8 +1,4 @@
-
 export default {
-    /**
-     * The URL with extra information about the app / service.
-     */
     aboutURL: 'https://github.com/Comp-Labs/comp-labs-meet#readme',
     /* https://complabs.in/solutions/business-meeting-service */
 
