@@ -24,7 +24,7 @@ export default {
     /**
      * The default server URL of Jitsi Meet Deployment that will be used.
      */
-    defaultServerURL: 'https://meet.complabs.in',
+    defaultServerURL: 'https://meet.jit.si',
 
     /**
      * The default server Timeout in seconds.
