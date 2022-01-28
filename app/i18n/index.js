@@ -3,8 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import moment from 'moment';
 
 const languages = {
-    // de: { translation: require('./lang/de.json') },
-    en: { translation: require('./lang/en.json') }
+    en: { translation: require('./lang/en.json') },
 };
 
 const detectedLocale = navigator.language;
