@@ -31,7 +31,7 @@ jobs:
         path: |
           dist/comp-labs-meet-x64.snap
           dist/comp-labs-meet-amd64.deb
-          dist/comp-labs-meet-x86_64.AppImage
+          dist/comp-labs-x86_64.AppImage
           dist/latest-linux.yml
   build-mac:
     name: macOS
