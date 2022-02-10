@@ -87,7 +87,7 @@ jobs:
       with:
         name: mac-binaries
         path: |
-          dist/comp-labs-meet.snap
+          dist/comp-labs-meet-amd64.snap
           dist/comp-labs-meet.dmg
           dist/comp-labs-meet.zip
           dist/latest-mac.yml
