@@ -4,9 +4,6 @@ Desktop application for [Comp Labs Meet] built with [Electron] modified from [Ji
 
 ![](/assets/screenshot-macos.png)
 
-<!-- - **macOS Application ![](/assets/screenshot-macos.png)**
-- **Linux Application ![](/assets/screenshot-linux.png)**-->
-
 ## Deeplinks Support - Watch the Video:
 
 
