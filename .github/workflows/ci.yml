@@ -24,7 +24,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
-        npm run dist
+        electron-builder build --linux AppImage snap deb
     - uses: actions/upload-artifact@v2
       with:
         name: linux-binaries
