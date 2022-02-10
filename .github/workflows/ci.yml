@@ -13,7 +13,7 @@ on:
 jobs:
   build-linux:
     name: Linux
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
@@ -24,7 +24,9 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
-        npm run dist
+        npm install -g electron-builder
+        electron-builder --linux snap AppImage deb
+# npm run dist
     - uses: actions/upload-artifact@v2
       with:
         name: linux-binaries
@@ -32,9 +34,31 @@ jobs:
           dist/comp-labs-meet-amd64.deb
           dist/comp-labs-meet-x86_64.AppImage
           dist/latest-linux.yml
+  # build-linux:
+  #   name: Snap
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - uses: actions/setup-node@v2
+  #     with:
+  #       node-version: '16'
+  #   - name: Build it
+  #     env:
+  #       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     run: |
+  #       npm install && npm install -g electron-builder
+  #       electron-builder build --linux snap
+        
+  #   - uses: actions/upload-artifact@v2
+  #     with:
+  #       name: linux-binaries
+  #       path: |
+  #         dist/comp-labs-meet-amd64.deb
+  #         dist/comp-labs-meet-x86_64.AppImage
+  #         dist/latest-linux.yml
   build-mac:
     name: macOS
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
@@ -65,7 +89,7 @@ jobs:
           dist/latest-mac.yml
   build-windows:
     name: Windows
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
