@@ -24,16 +24,13 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
-        npm install -g electron-builder
-        npm run build
-        electron-builder build --linux AppImage snap deb
+        npm run dist
     - uses: actions/upload-artifact@v2
       with:
         name: linux-binaries
         path: |
-          dist/comp-labs-meet-x64.snap
           dist/comp-labs-meet-amd64.deb
-          dist/comp-labs-x86_64.AppImage
+          dist/comp-labs-meet-x86_64.AppImage
           dist/latest-linux.yml
   build-mac:
     name: macOS
