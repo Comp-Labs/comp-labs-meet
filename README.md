@@ -2,42 +2,55 @@
 
 Desktop application for [Comp Labs Meet] built with [Electron] modified from [Jitsi Meet Electron App].
 
-### Gallery
-- **Windows Application ![](/assets/screenshot-windows.png)**
-- **macOS Application ![](/assets/screenshot-macos.png)**
-- **Linux Application ![](/assets/screenshot-linux.png)**
-- **Deeplinks Support - Watch Video:**
+![](/assets/screenshot-macos.png)
 
-<!-- <a href="https://youtu.be/3PPVo2Ltm1E"><img src="https://user-images.githubusercontent.com/86196753/144702305-72c50732-88d7-4c1c-b4c5-346ced84506e.jpg" width="250" height="131.5"></a> -->
+<!-- - **macOS Application ![](/assets/screenshot-macos.png)**
+- **Linux Application ![](/assets/screenshot-linux.png)**-->
 
-<iframe width="512" height="256" src="https://www.youtube.com/embed/krqDiUuNd4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Deeplinks Support - Watch the Video:
+
+
+<div align=center><a href="https://www.youtube.com/watch?v=3PPVo2Ltm1E"><img align=center src="https://img.youtube.com/vi/3PPVo2Ltm1E/0.jpg"></a></div>
 
 ## Features
 
 - [End-to-End Encryption](https://jitsi.org/blog/e2ee/) support (BETA)
 - Works with any Jitsi Meet deployment
-- Builtin auto-updates
+- Built-in auto-updates
 - ~Remote control~ (Currently [Disabled](https://github.com/jitsi/jitsi-meet-electron/issues/483) due to [Security Issues](https://github.com/jitsi/security-advisories/blob/master/advisories/JSA-2020-0001.md))
-- Always-On-Top window
+- Always-On-Top Window
 - Support for deeplinks such as `comp-labs-meet://mymeeting` (will open `mymeeting` on the configured Jitsi Server URL in the App) or `comp-labs-meet://meet.example.com/mymeeting` (will open `mymeeting` on the Jitsi Meet Server running on `meet.example.com`)
 
-## Installation from Installers
+## Installation
 
 Download our latest release and you're off to the races!
 
-| Windows | macOS | GNU/Linux (AppImage) | GNU/Linux (Deb) | Linux (Snap) |
+| Windows | macOS | GNU/Linux (AppImage) | GNU/Linux (Deb) | GNU/Linux (Snap) |
 | -- | -- | -- | -- | -- |
 | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.exe) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.dmg) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-x86_64.AppImage) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-amd64.deb) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.snap) |
 
-NOTE: The GNU/LInux builds are 64-bit only.
+**NOTE: The GNU/Linux builds are 64-bit only.**
 
-## Installation from Public App Stores
+<!-- ## Installation from Native App Stores
 
 Windows             |  macOS             |  Linux
 :------------------:|:------------------:|:-------------:
-<a href="https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html"><img src="https://user-images.githubusercontent.com/86196753/144703138-6dc9f792-429c-4bfc-9318-37bb6fea628a.png" width="216" height="78"></a>  |  [![MAS](https://user-images.githubusercontent.com/86196753/144703193-4547d9d3-bc96-4cf3-a82f-00a0b26f3358.png)](https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html)  |  [![LSS](https://user-images.githubusercontent.com/86196753/144703091-f425d98c-27ae-4ec2-922b-bc96413c9b8b.png)](https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html)
+<a href="https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html"><img src="https://user-images.githubusercontent.com/86196753/144703138-6dc9f792-429c-4bfc-9318-37bb6fea628a.png" width="216" height="78"></a>  |  [![MAS](https://user-images.githubusercontent.com/86196753/144703193-4547d9d3-bc96-4cf3-a82f-00a0b26f3358.png)](https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html)  |  [![LSS](https://user-images.githubusercontent.com/86196753/144703091-f425d98c-27ae-4ec2-922b-bc96413c9b8b.png)](https://d2q0s6dlkh7kge.cloudfront.net/html/platform404.html) -->
 
-**Not yet available on all the App Stores**
+<!-- **Not yet available on all the App Stores** -->
+
+### Using it with your own Jitsi Meet installation
+
+:warning: The following additional HTTP headers are known to break the Electron App:
+
+```
+Content-Security-Policy "frame-ancestors [looks like any value is bad]";
+X-Frame-Options "DENY";
+```
+A working Content Security Policy looks like that:
+```
+Content-Security-Policy "img-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'wasm-eval'; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';";
+```
 
 ## Development
 
@@ -136,16 +149,6 @@ your environment.
 
 </details>
 
-### Customise this Application
-
-If you want to customise this application with your own needs such as logo, meeting url, text change on the app, here's how you do it.
-
-- Install [nodejs](https://nodejs.org/en/download) `Install the LTS version, not the Latest version as it produces problems.`
-- Install [Git](https://git-scm.com/downloads) `Select your Operating System name and install it`
-- Download the Latest Compressed Source Code from `https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.zip`
-- Extract the zip file and open a new terminal inside the directory
-- Run `npm install && npm start` from the Terminal. The App should start.
-- You can edit the Electron Source Files to Customize the Application.
 
 ## Known issues
 
@@ -159,7 +162,7 @@ On macOS Catalina and above versions, a warning will be displayed on first insta
 
 ### GNU/Linux
 
-If after downloading it, you can't execute the file directly, try running `chmod u+x ./jitsi-meet-x86_64.AppImage`
+If after downloading it, you can't execute the file directly, try running `chmod u+x ./comp-labs-meet-x86_64.AppImage`
 
 **NOTE for old GNU/Linux distributions**
 
