@@ -1,6 +1,6 @@
 {
   "name": "comp-labs-meet",
-  "version": "2022.1.1",
+  "version": "2022.2.10",
   "description": "Electron application for Comp Labs Meet",
   "main": "./build/main.js",
   "productName": "Comp Labs Meet",

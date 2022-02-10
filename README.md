@@ -181,7 +181,87 @@ sudo apt-get install libnss3
 
 The json files are for all the strings inside the application and can be translated [here](/app/i18n/lang).
 
-New translations require the addition of a line in [index.js](/app/i18n/index.js).
+New translations require the addition of a line in [index.js](/app/i18n/index.js) And a New Translation file inside the directory `/app/i18n/lang/translation.json`. `language.json` to be replaced with a `ISO 639-1 standard language codes`. Example:
+
+`/app/i18n/index.js`
+
+```javascript
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import moment from 'moment';
+
+const languages = {
+    en: { translation: require('./lang/language.json') }
+    // Example for German (Standard)
+    // de: { translation: require('./lang/de.json') }
+};
+
+const detectedLocale = navigator.language;
+
+i18n
+    .use(initReactI18next)
+    .init({
+        resources: languages,
+        lng: detectedLocale,
+        fallbackLng: 'en',
+        interpolation: {
+            escapeValue: false
+        }
+    });
+
+moment.locale(detectedLocale);
+
+export default i18n;
+```
+`/app/i18n/lang/language.json`
+
+**NOTE: This is not a updated translation for Comp Labs Meet. As we Modified the Source Code, but we didn't modified the translation json files, so don't open an issue about this translation is incorrect. This will be corrected in the future. Thanks for your cooperation.**
+
+```json
+{
+	"enterConferenceNameOrUrl": "Bitte einen Konferenznamen oder eine Jitsi-Adresse eingeben",
+	"go": "LOS",
+	"help": "Hilfe",
+	"termsLink": "Nutzungsbedingungen",
+	"privacyLink": "Datenschutzbedingungen",
+	"recentListLabel": "oder einen zuletzt genutzen Konferenzraum betreten",
+	"sendFeedbackLink": "Eine Rückmeldung senden",
+	"aboutLink": "F&A",
+	"sourceLink": "Quelltext",
+	"versionLabel": "Version: {{version}}",
+	"onboarding": {
+		"startTour": "Tour starten",
+		"skip": "Überspringen",
+		"welcome": "Willkommen in {{appName}}",
+		"letUsShowYouAround": "Wir zeigen wie alles funktioniert!",
+		"next": "Weiter",
+		"conferenceUrl": "Bitte den Namen (oder die vollständige Adresse) des Raumes eingeben, dem beigetreten werden soll. Es kann ein Name ausgedacht werden, diesen bitte anderen mitteilen, damit sie denselben Namen eingeben.",
+		"settingsDrawerButton": "Hier klicken, um zu den Einstellungen zu gelangen.",
+		"nameSetting": "Das ist der Anzeigename, andere werden Sie unter diesem Namen sehen.",
+		"emailSetting": "Die hier eingegebene E-Mail ist Teil des Benutzerprofils.",
+		"startMutedToggles": "Hier kann eingestellt werden, ob mit stummgeschaltetem Audio oder Video gestartet wird. Das wird auf alle Konferenzen angewendet.",
+		"serverSetting": "Das ist der Server, auf dem die Konferenzen stattfinden werden. Es kann ein eigener verwendet werden, muss aber nicht!",
+		"serverTimeout": "Zeitüberschreitung für den Beitritt zu einer Konferenz. Wenn nicht rechtzeitig beigetreten wurde, wird die Konferenz abgebrochen.",
+		"alwaysOnTop": "Hier kann eingestellt werden, ob das Fenster »Immer im Vordergrund« aktiviert wird. Dieses wird angezeigt, wenn das Hauptfenster den Fokus verliert. Das wird bei allen Konferenzen angewendet."
+	},
+	"settings": {
+		"back": "Zurück",
+		"name": "Name",
+		"email": "E-Mail",
+		"advancedSettings": "Erweiterte Einstellungen",
+		"alwaysOnTopWindow": "Immer im Vordergrund",
+		"startWithAudioMuted": "Ohne Audio starten",
+		"startWithVideoMuted": "Ohne Video starten",
+		"invalidServer": "Falsche Server-Adresse",
+		"invalidServerTimeout": "Ungültiger Wert für die Server-Wartezeit",
+		"serverUrl": "Server-Adresse",
+		"serverTimeout": "Server-Wartezeit (in Sekunden)",
+		"disableAGC": "Automatische Mikrofonlautstärkeregelung deaktivieren"
+	}
+}
+```
+
+You can open a Pull Request in this Repository for Updating or Adding New Translations. Your help will be highly appreciated.
 
 `Localize desktop file on linux` requires the addition of a line in [package.json](/package.json).
 Please search for `Comment[hu]` as an example to help add your translation of the English string `Jitsi Meet Desktop App` for your language.
