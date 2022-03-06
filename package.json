@@ -91,14 +91,18 @@
       ]
     },
     "win": {
-      "artifactName": "comp-labs-meet.${ext}",
+      "artifactName": "comp-labs-meet-${arch}.${ext}",
       "target": [
         {
-          "arch": [
-            "arm64",
-            "ia32",
-            "x64"
-          ],
+          "arch": "x64",
+          "target": "nsis"
+        },
+        {
+          "arch": "ia32",
+          "target": "nsis"
+        },
+        {
+          "arch": "arm64",
           "target": "nsis"
         }
       ]
