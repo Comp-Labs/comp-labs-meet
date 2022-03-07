@@ -198,6 +198,11 @@ function createJitsiMeetWindow() {
         }
     }
 
+    // 
+    if (process.platform === 'win32') {
+        app.setAppUserModelId(app.productName);
+    }
+
     // URL for index.html which will be our entry point.
     const indexURL = URL.format({
         pathname: path.resolve(basePath, './build/index.html'),

@@ -64,17 +64,31 @@
       "target": [
         {
           "arch": "x64",
+          "target": "snap"
+        },
+        {
+          "arch": "x64",
           "target": "AppImage"
         },
         {
           "arch": "x64",
           "target": "deb"
-        },
-        {
-          "arch": "x64",
-          "target": "snap"
         }
       ]
+    },
+    "snap": {
+      "confinement": "strict",
+      "grade": "stable",
+      "stagePackages": [
+        "libgtk-3-0",
+        "libnss3",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libuuid1"
+      ],
+      "autostart": false
+
     },
     "deb": {
       "depends": [
