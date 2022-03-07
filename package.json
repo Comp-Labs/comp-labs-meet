@@ -34,20 +34,7 @@
         {
           "arch": "universal",
           "target": "dmg"
-        },
-        {
-          "arch": "universal",
-          "target": "pkg"
-        },
-        {
-          "arch": "arm64",
-          "target": "dmg"
-        },
-        {
-          "arch": "arm64",
-          "target": "pkg"
         }
-        
       ],
       "category": "public.app-category.video",
       "darkModeSupport": true,
@@ -56,8 +43,8 @@
       "entitlementsInherit": "entitlements.mac.plist",
       "asarUnpack": "**/*.node",
       "extendInfo": {
-        "NSCameraUsageDescription": "Comp Labs Meet requires access to your camera in order to make video-calls.",
-        "NSMicrophoneUsageDescription": "Comp Labs Meet requires access to your microphone in order to make calls (audio/video).",
+        "NSCameraUsageDescription": "Comp Labs Meet Requires Access to your Camera in order to Make/Join Video Calls.",
+        "NSMicrophoneUsageDescription": "Comp Labs Meet Requires Access to your Microphone in order to Make/Join Audio Calls.",
         "LSMultipleInstancesProhibited": true
       }
     },
@@ -76,16 +63,25 @@
       "executableName": "comp-labs-meet",
       "target": [
         {
-          "arch": "universal",
-          "target": "snap"
-        },
-        {
-          "arch": "universal",
+          "arch": [
+            "x64",
+            "arm64"
+          ],
           "target": "AppImage"
         },
         {
-          "arch": "universal",
+          "arch": [
+            "x64",
+            "arm64"
+          ],
           "target": "deb"
+        },
+        {
+          "arch": [
+            "x64",
+            "arm64"
+          ],
+          "target": "snap"
         }
       ]
     },
@@ -103,15 +99,11 @@
       "artifactName": "comp-labs-meet-${arch}.${ext}",
       "target": [
         {
-          "arch": "x64",
-          "target": "nsis"
-        },
-        {
-          "arch": "ia32",
-          "target": "nsis"
-        },
-        {
-          "arch": "arm64",
+          "arch": [
+            "x64",
+            "ia32",
+            "arm64"
+          ],
           "target": "nsis"
         }
       ]

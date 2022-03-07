@@ -27,7 +27,6 @@ jobs:
         npm install -g electron-builder
         npm run dist
         electron-builder --linux snap
-# npm run dist
     - uses: actions/upload-artifact@v2
       with:
         name: linux-binaries
@@ -65,9 +64,6 @@ jobs:
         name: mac-binaries
         path: |
           dist/comp-labs-meet.dmg
-          dist/comp-labs-meet.pkg
-          dist/comp-labs-meet-arm64.dmg
-          dist/comp-labs-meet-arm64.pkg
           dist/latest-mac.yml
   build-windows:
     name: Windows
