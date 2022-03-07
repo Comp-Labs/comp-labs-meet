@@ -86,9 +86,7 @@
         "xdg-utils",
         "libatspi2.0-0",
         "libuuid1"
-      ],
-      "autostart": false
-
+      ]
     },
     "deb": {
       "depends": [
