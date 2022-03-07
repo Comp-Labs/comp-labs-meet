@@ -1,6 +1,6 @@
 {
   "name": "comp-labs-meet",
-  "version": "2022.3.6",
+  "version": "2022.3.7",
   "description": "Electron application for Comp Labs Meet",
   "main": "./build/main.js",
   "productName": "Comp Labs Meet",
@@ -29,7 +29,7 @@
       "!main.js"
     ],
     "mac": {
-      "artifactName": "comp-labs-meet.${ext}",
+      "artifactName": "comp-labs-meet-${arch}.${ext}",
       "target": [
         {
           "arch": "universal",
@@ -37,8 +37,17 @@
         },
         {
           "arch": "universal",
-          "target": "zip"
+          "target": "pkg"
+        },
+        {
+          "arch": "arm64",
+          "target": "dmg"
+        },
+        {
+          "arch": "arm64",
+          "target": "pkg"
         }
+        
       ],
       "category": "public.app-category.video",
       "darkModeSupport": true,
@@ -62,20 +71,20 @@
       "category": "VideoConference;AudioVideo;Audio;Video;Network",
       "description": "Comp Labs Meet Desktop App",
       "desktop": {
-        "Comment[hu]": "Asztali Comp Labs Meet-alkalmazás"
+        "Comment[hu]": "Comp Labs Meet asztali alkalmazás"
       },
       "executableName": "comp-labs-meet",
       "target": [
         {
-          "arch": "x64",
+          "arch": "universal",
           "target": "snap"
         },
         {
-          "arch": "x64",
+          "arch": "universal",
           "target": "AppImage"
         },
         {
-          "arch": "x64",
+          "arch": "universal",
           "target": "deb"
         }
       ]

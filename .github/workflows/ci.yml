@@ -65,9 +65,9 @@ jobs:
         name: mac-binaries
         path: |
           dist/comp-labs-meet.dmg
-          dist/comp-labs-meet.dmg.blockmap
-          dist/comp-labs-meet.zip
-          dist/comp-labs-meet.zip.blockmap
+          dist/comp-labs-meet.pkg
+          dist/comp-labs-meet-arm64.dmg
+          dist/comp-labs-meet-arm64.pkg
           dist/latest-mac.yml
   build-windows:
     name: Windows
@@ -88,11 +88,7 @@ jobs:
         name: windows-binaries
         path: |
           dist/comp-labs-meet.exe
-          dist/comp-labs-meet.exe.blockmap
-          comp-labs-meet-x64.exe
-          comp-labs-meet-x64.exe.blockmap
-          comp-labs-meet-ia32.exe.blockmap
-          comp-labs-meet-ia32.exe
-          comp-labs-meet-arm64.exe
-          comp-labs-meet-arm64.exe.blockmap
+          dist/comp-labs-meet-x64.exe
+          dist/comp-labs-meet-ia32.exe
+          dist/comp-labs-meet-arm64.exe
           dist/latest.yml
