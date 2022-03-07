@@ -29,11 +29,11 @@ jobs:
         electron-builder --linux snap
     - uses: actions/upload-artifact@v2
       with:
-        name: linux-binaries
+        name: Linux
         path: |
-          dist/comp-labs-meet-amd64.deb
-          dist/comp-labs-meet-x86_64.AppImage
-          dist/comp-labs-meet-amd64.snap
+          dist/comp-labs-meet.AppImage
+          dist/comp-labs-meet.deb
+          dist/comp-labs-meet.snap
           dist/latest-linux.yml
   build-mac:
     name: macOS
@@ -61,7 +61,7 @@ jobs:
         npm run dist
     - uses: actions/upload-artifact@v2
       with:
-        name: mac-binaries
+        name: macOS
         path: |
           dist/comp-labs-meet.dmg
           dist/latest-mac.yml
@@ -81,7 +81,7 @@ jobs:
         npm run dist
     - uses: actions/upload-artifact@v2
       with:
-        name: windows-binaries
+        name: Windows
         path: |
           dist/comp-labs-meet.exe
           dist/comp-labs-meet-x64.exe
