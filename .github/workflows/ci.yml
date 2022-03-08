@@ -26,7 +26,7 @@ jobs:
         npm install
         npm install -g electron-builder
         npm run dist
-        electron-builder --linux snap --publish
+        electron-builder --linux snap --publish onTagOrDraft
     - uses: actions/upload-artifact@v2
       with:
         name: Linux
