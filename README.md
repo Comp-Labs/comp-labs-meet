@@ -22,9 +22,9 @@ Desktop application for [Comp Labs Meet] built with [Electron] modified from [Ji
 
 Download our latest release and you're off to the races!
 
-| Windows | macOS | GNU/Linux (AppImage) | GNU/Linux (Deb) | GNU/Linux (Snap) |
+| Windows | macOS | GNU/Linux (AppImage) | GNU/Linux (Deb) | Snap Store |
 | -- | -- | -- | -- | -- |
-| [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.exe) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.dmg) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-x86_64.AppImage) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-amd64.deb) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-amd64.snap) |
+| [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.exe) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet.dmg) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-x86_64.AppImage) | [Download](https://github.com/comp-labs/comp-labs-meet/releases/latest/download/comp-labs-meet-amd64.deb) | [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/comp-labs-meet) |
 
 **NOTE: The GNU/Linux builds are 64-bit only.**
 
