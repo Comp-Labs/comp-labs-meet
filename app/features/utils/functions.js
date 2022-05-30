@@ -1,16 +1,5 @@
-/* global process */
-
 // @flow
 
-
-/**
- * Return true if Electron app is running on Mac system.
- *
- * @returns {boolean}
- */
-export function isElectronMac() {
-    return process.platform === 'darwin';
-}
 
 /**
  * Normalizes the given server URL so it has the proper scheme.
@@ -18,7 +7,7 @@ export function isElectronMac() {
  * @param {string} url - URL with or without scheme.
  * @returns {string}
  */
-export function normalizeServerURL(url: string) {
+ export function normalizeServerURL(url: string) {
     // eslint-disable-next-line no-param-reassign
     url = url.trim();
 
