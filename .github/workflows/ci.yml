@@ -16,8 +16,8 @@ jobs:
     name: Linux
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: '16'
     - name: Build it
@@ -28,7 +28,7 @@ jobs:
         npm install -g electron-builder
         npm run dist
         electron-builder --linux snap --publish onTagOrDraft
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3.1.0
       with:
         name: Linux
         path: |
@@ -69,7 +69,7 @@ jobs:
       run: |
         npm install
         npm run dist
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3.1.0
       with:
         name: macOS
         path: |
@@ -79,8 +79,8 @@ jobs:
     name: Windows
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: '16'
     - name: Build it
@@ -89,7 +89,7 @@ jobs:
       run: |
         npm install
         npm run dist
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3.1.0
       with:
         name: Windows
         path: |
