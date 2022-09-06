@@ -1,6 +1,6 @@
 {
   "name": "comp-labs-meet",
-  "version": "2022.7.1",
+  "version": "2022.9.1",
   "description": "Electron application for Tech Fiddle Meet",
   "main": "./build/main.js",
   "productName": "Tech Fiddle Meet",
