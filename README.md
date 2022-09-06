@@ -1,6 +1,6 @@
-# Comp Labs Meet
+# Tech Fiddle Meet
 
-Desktop application for [Comp Labs Meet] built with [Electron] modified from [Jitsi Meet Electron App].
+Desktop application for [Tech Fiddle Meet] built with [Electron] modified from [Jitsi Meet Electron App].
 
 ![](/assets/screenshot-macos.png)
 
@@ -232,7 +232,7 @@ export default i18n;
 ```
 `/app/i18n/lang/language.json`
 
-**NOTE: This is not an updated translation for Comp Labs Meet. As we Modified the Source Code, but we didn't modify the translation JSON files, so don't open an issue about this translation being incorrect. This will be corrected in the future. Thanks for your cooperation.**
+**NOTE: This is not an updated translation for Tech Fiddle Meet. As we Modified the Source Code, but we didn't modify the translation JSON files, so don't open an issue about this translation being incorrect. This will be corrected in the future. Thanks for your cooperation.**
 
 ```json
 {
@@ -292,7 +292,7 @@ MIT License. See the [LICENSE] file.
 Jitsi is built by a large community of developers, if you want to participate,
 please join the [community forum].
 
-[Comp Labs Meet]: https://github.com/comp-labs/comp-labs-meet
+[Tech Fiddle Meet]: https://github.com/comp-labs/comp-labs-meet
 [Electron]: https://electronjs.org/
 [latest release]: https://github.com/comp-labs-meet/releases/latest
 [jitsi-meet-electron-sdk]: https://github.com/jitsi/jitsi-meet-electron-sdk
