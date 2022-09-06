@@ -56,7 +56,8 @@
       "category": "VideoConference;AudioVideo;Audio;Video;Network",
       "description": "Comp Labs Meet Desktop App",
       "desktop": {
-        "Comment[hu]": "Comp Labs Meet asztali alkalmazás"
+        "Comment[hu]": "Comp Labs Meet asztali alkalmazás",
+        "Comment[hr]": "Comp Labs Meet desktop aplikacija"
       },
       "executableName": "comp-labs-meet",
       "target": [{
