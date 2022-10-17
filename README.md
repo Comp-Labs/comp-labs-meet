@@ -1,6 +1,6 @@
-# Comp Labs Meet
+# Tech Fiddle Meet
 
-Desktop application for [Comp Labs Meet] built with [Electron] modified from [Jitsi Meet Electron App].
+Desktop application for [Tech Fiddle Meet] built with [Electron] modified from [Jitsi Meet Electron App].
 
 ![](/assets/screenshot-macos.png)
 
@@ -16,7 +16,7 @@ Desktop application for [Comp Labs Meet] built with [Electron] modified from [Ji
 - Built-in auto-updates
 - ~Remote control~ (Currently [Disabled](https://github.com/jitsi/jitsi-meet-electron/issues/483) due to [Security Issues](https://github.com/jitsi/security-advisories/blob/master/advisories/JSA-2020-0001.md))
 - Always-On-Top Window
-- Support for deeplinks such as `comp-labs-meet://mymeeting` (will open `mymeeting` on the configured Jitsi Server URL in the App) or `comp-labs-meet://meet.example.com/mymeeting` (will open `mymeeting` on the Jitsi Meet Server running on `meet.example.com`)
+- Support for deep links such as `comp-labs-meet://meeting` (will open `meeting` on the configured Jitsi Server URL in the App) or `comp-labs-meet://meet.example.com/meeting` (will open `meeting` on the Jitsi Meet Server running on `meet.example.com`)
 
 ## Installation
 
@@ -68,7 +68,7 @@ npm install --global --production windows-build-tools
 
 <details><summary>Extra dependencies for GNU/Linux</summary>
 
-X11, PNG and zlib development packages are necessary. On Debian-like systems then can be installed as follows:
+X11, PNG and ZLIB development packages are necessary. Debian-like systems then can be installed as follows:
 
 ```bash
 sudo apt install libx11-dev zlib1g-dev libpng-dev libxtst-dev
@@ -103,20 +103,19 @@ or from the application `--show-dev-tools` command line flag.
 npm run dist
 ```
 
-#### Working with jitsi-meet-electron-sdk
+#### Working with `jitsi-meet-electron-sdk`
 
-[jitsi-meet-electron-sdk] is a helper package which implements many features
-such as remote control and the always-on-top window. If new features are to be
-added / tested, running with a local version of these utils is very handy, here
+[jitsi-meet-electron-sdk] is a helper package that implements many features
+such as remote control and the always-on-top window. If new features are to be added/tested, running with a local version of these utils is very handy, here
 is how to do that.
 
-By default the @jitsi/electron-sdk is build from npm. The default dependency path in package.json is:
+By default, the `@jitsi/electron-sdk` is built from npm. The default dependency path in package.json is:
 
 ```json
 "@jitsi/electron-sdk": "^3.0.0"
 ```
 
-To work with local copy you must change the path to:
+To work with a local copy you must change the path to:
 
 ```json
 "@jitsi/electron-sdk": "file:///Users/name/jitsi-meet-electron-sdk-copy",
@@ -136,13 +135,13 @@ your environment.
 
 1. Create release branch: `git checkout -b release-1-2-3`, replacing 1-2-3 with the desired release version
 2. Increment the version: `npm version patch`, replacing `patch` with `minor` or `major` as required
-3. Push release branch to github: `git push -u origin release-1-2-3`
+3. Push release branch to GitHub: `git push -u origin release-1-2-3`
 4. Create PR: `gh pr create`
-5. Once PR is reviewed and ready to merge, create draft Github release: `gh release create v1.2.3 --draft --title 1.2.3`, replacing v1.2.3 and 1.2.3 with the desired release version
+5. Once PR is reviewed and ready to merge, create a draft Github release: `gh release create v1.2.3 --draft --title 1.2.3`, replacing v1.2.3 and 1.2.3 with the desired release version
 6. Merge PR
-7. Github action will build binaries and attach to the draft release
-8. Test binaries from draft release
-9. If all tests are fine, publish draft release
+7. The GitHub Action Workflow will build binaries and attach them to the draft release
+8. Test binaries from a draft release
+9. If all tests are fine, publish a draft release
 
 </details>
 
@@ -151,11 +150,11 @@ your environment.
 
 ### Windows
 
-A warning will show up mentioning the app is unsigned upon first install. This is expected.
+A warning will show up mentioning the app is unsigned upon the first installation. This is expected.
 
 ### macOS
 
-On macOS Catalina and above versions, a warning will be displayed on first install. The app won't open unless "open" is pressed. This dialog is only shown once.
+On macOS Catalina and above versions, a warning will be displayed on the first installation. The app won't open unless "open" is pressed. This dialog is only shown once.
 
 ### GNU/Linux
 
@@ -171,6 +170,20 @@ To fix this, install libfuse2 as follows:
 
 ```
 sudo apt install libfuse2
+```
+
+Under Wayland, experimental native Wayland support can be enabled with the command-line switch `--ozone-platform-hint` set to `auto`:
+
+```
+./jitsi-meet-x86_64.AppImage --ozone-platform-hint=auto
+```
+
+Note that screen sharing is currently not supported under Wayland, eg. the permissions prompt may loop endlessly.
+
+In case you experience a blank page after Jitsi server upgrades, try removing the local cache files:
+
+```
+rm -rf ~/.config/Jitsi\ Meet/
 ```
 
 **NOTE for old GNU/Linux distributions**
@@ -191,9 +204,9 @@ sudo apt-get install libnss3
 
 ## Translations
 
-The json files are for all the strings inside the application and can be translated [here](/app/i18n/lang).
+The JSON files are for all the strings inside the application and can be translated [here](/app/i18n/lang).
 
-New translations require the addition of a line in [index.js](/app/i18n/index.js) And a New Translation file inside the directory `/app/i18n/lang/translation.json`. `language.json` to be replaced with a `ISO 639-1 standard language codes`. Example:
+New translations require the addition of a line in [index.js](/app/i18n/index.js) And a New Translation file inside the directory `/app/i18n/lang/translation.json`. `language.json` to be replaced with the `ISO 639-1 standard language codes`. Example:
 
 `/app/i18n/index.js`
 
@@ -227,7 +240,7 @@ export default i18n;
 ```
 `/app/i18n/lang/language.json`
 
-**NOTE: This is not a updated translation for Comp Labs Meet. As we Modified the Source Code, but we didn't modified the translation json files, so don't open an issue about this translation is incorrect. This will be corrected in the future. Thanks for your cooperation.**
+**NOTE: This is not an updated translation for Tech Fiddle Meet. As we Modified the Source Code, but we didn't modify the translation JSON files, so don't open an issue about this translation being incorrect. This will be corrected in the future. Thanks for your cooperation.**
 
 ```json
 {
@@ -275,7 +288,7 @@ export default i18n;
 
 You can open a Pull Request in this Repository for Updating or Adding New Translations. Your help will be highly appreciated.
 
-`Localize desktop file on linux` requires the addition of a line in [package.json](/package.json).
+`Localizing desktop files on Linux` requires the addition of a line in [package.json](/package.json).
 Please search for `Comment[hu]` as an example to help add your translation of the English string `Jitsi Meet Desktop App` for your language.
 
 ## License
@@ -285,9 +298,9 @@ MIT License. See the [LICENSE] file.
 ## Community
 
 Jitsi is built by a large community of developers, if you want to participate,
-please join [community forum].
+please join the [community forum].
 
-[Comp Labs Meet]: https://github.com/comp-labs/comp-labs-meet
+[Tech Fiddle Meet]: https://github.com/comp-labs/comp-labs-meet
 [Electron]: https://electronjs.org/
 [latest release]: https://github.com/comp-labs-meet/releases/latest
 [jitsi-meet-electron-sdk]: https://github.com/jitsi/jitsi-meet-electron-sdk

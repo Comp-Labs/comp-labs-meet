@@ -13,7 +13,7 @@ export default {
     /**
      * Application name.
      */
-    appName: 'Comp Labs Meet',
+    appName: 'Tech Fiddle Meet',
 
     /**
     * The prefix for application protocol.
